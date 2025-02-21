@@ -33,7 +33,7 @@ const Cart = ({ cart, clearCart, checkout, removeFromCart }: CartProps) => {
   }, []);
 
   return (
-    <div className="bg-white p-6 w-full rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Cart</h2>
       <ul className="space-y-2">
         {cart.map((movie) => (

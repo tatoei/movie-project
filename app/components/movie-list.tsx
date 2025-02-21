@@ -92,11 +92,10 @@ const MovieList = ({ addToCart, cart }: MovieListProps) => {
             <button
               onClick={() => addToCart(movie)}
               disabled={isMovieInCart(movie.id)}
-              className={`bg-blue-500 text-white px-3 py-1 rounded-lg ${
-                isMovieInCart(movie.id)
+              className={`bg-blue-500 text-white px-3 py-1 rounded-lg ${isMovieInCart(movie.id)
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:bg-blue-600"
-              }`}
+                }`}
             >
               {isMovieInCart(movie.id) ? "Added" : "Add to Cart"}
             </button>

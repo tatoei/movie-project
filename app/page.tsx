@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TodoList from "./components/todo-list";
 import MovieList from "./components/movie-list";
 import Cart from "./components/cart";
 import CheckoutDialog from "./components/checkout-dialog";
@@ -48,19 +47,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="w-full">
-          <TodoList />
-        </div>
-        <div className="space-y-8  py-8 px-4 sm:px-6 lg:px-8">
-          <Cart
-            cart={cart}
-            clearCart={clearCart}
-            checkout={checkout}
-            removeFromCart={removeFromCart}
-          />
-        </div>
-      </div>
+      <Cart
+        cart={cart}
+        clearCart={clearCart}
+        checkout={checkout}
+        removeFromCart={removeFromCart}
+      />
       <div className="px-8">
         <MovieList addToCart={addToCart} cart={cart} />
       </div>

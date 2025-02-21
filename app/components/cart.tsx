@@ -15,6 +15,7 @@ interface CartProps {
 
 const Cart = ({ cart, clearCart, checkout, removeFromCart }: CartProps) => {
   const [discount, setDiscount] = useState<number>(0);
+  const [movies, setMovies] = useState<Movie[]>([]); // Add state for movies
 
   useEffect(() => {
     if (cart.length >= 5) {
@@ -25,6 +26,11 @@ const Cart = ({ cart, clearCart, checkout, removeFromCart }: CartProps) => {
       setDiscount(0);
     }
   }, [cart]);
+
+  // Fetch movies and set state (this can be adjusted based on your actual implementation)
+  useEffect(() => {
+    // Fetch movies logic here and setMovies
+  }, []);
 
   return (
     <div className="bg-white p-6 w-full rounded-lg shadow-md">
@@ -56,7 +62,8 @@ const Cart = ({ cart, clearCart, checkout, removeFromCart }: CartProps) => {
         </button>
         <button
           onClick={checkout}
-          className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
+          className={`bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600 ${cart.length === 0 || movies.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={cart.length === 0 || movies.length === 0}
         >
           Checkout
         </button>
